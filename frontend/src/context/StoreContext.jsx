@@ -7,7 +7,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "http://localhost:4000"
+    const url = "https://quickeats-g62u.onrender.com/"
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([])
 
@@ -20,7 +20,7 @@ const StoreContextProvider = (props) => {
             setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 })) //if item is already present in cart, then increease it by 1
         }
         if (token) {
-            await axios.post(url+"/api/cart/add",{itemId},{headers:{token}}) //this is done so that we can add items to database from frontend too
+            await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } }) //this is done so that we can add items to database from frontend too
         }
     }
 
@@ -28,7 +28,7 @@ const StoreContextProvider = (props) => {
     const removeFromCart = async (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (token) {
-            await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}}) //this is done so that we can remove items to database from frontend too
+            await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } }) //this is done so that we can remove items to database from frontend too
         }
     }
 
@@ -53,7 +53,7 @@ const StoreContextProvider = (props) => {
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})
+        const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } })
         setCartItems(response.data.cartData)
     }
 

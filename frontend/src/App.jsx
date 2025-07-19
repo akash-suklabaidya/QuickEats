@@ -6,7 +6,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Cart from './pages/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
-import Verify from './pages/verify/verify'
+import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
 
 const App = () => {
@@ -15,9 +15,9 @@ const App = () => {
 
   return (
     <>
-    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>} {/* if showLogin is true, the LoginPopup component will be displayed, otherwise return the fragment */}
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>} {/* if showLogin is true, the LoginPopup component will be displayed, otherwise return the fragment */}
       <div className='app'>
-        <Navbar setShowLogin={setShowLogin}/>
+        <Navbar setShowLogin={setShowLogin} />
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
@@ -26,7 +26,7 @@ const App = () => {
           <Route path='/myorders' element={<MyOrders />}></Route>
         </Routes>
       </div>
-      <Footer/>
+      <Footer />
     </>
 
   )
