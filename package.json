@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cashfree-pg": "^5.0.8",
+    "razorpay": "^2.9.6"
+  }
+}
